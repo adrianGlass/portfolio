@@ -3,9 +3,16 @@ export default {
   content: [
     './**/*.vue',
     './plugins/html-serializer.js',
+    './**/*.svg'
   ],
   theme: {
-    extend: {},
+    extend: {
+      minHeight: {
+        '200p': '200px',
+        '275p': '275px',
+        '500p': '500px',
+      }
+    },
   },
   plugins: [],
 }

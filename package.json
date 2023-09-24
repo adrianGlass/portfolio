@@ -19,7 +19,11 @@
     "tailwindcss": "^3.3.3"
   },
   "dependencies": {
-    "@duskmoon/vue3-typed-js": "^0.0.4",
-    "@vueuse/core": "^10.4.1"
+    "@prismicio/helpers": "^2.3.9",
+    "@vueuse/core": "^10.4.1",
+    "@vueuse/head": "^2.0.0",
+    "swiper": "^10.3.0",
+    "typed.js": "^2.0.16",
+    "vue3-google-login": "^2.0.23"
   }
 }
