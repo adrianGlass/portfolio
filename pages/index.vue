@@ -1,23 +1,11 @@
 <template class="mouse-cursor-gradient-tracking">
   <div class="bg-white">
-    <div class="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 max-w-6xl mx-auto overflow-visible">
-      <div class="mx-auto max-w-7xl pt-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-20">
-        <div class="px-6 lg:px-0 lg:pt-4">
-          <div class="mx-auto max-w-2xl">
+    <div class="relative isolate overflow-hidden bg-gradient-to-b max-w-7xl mx-auto overflow-visible">
+      <div class="mx-auto pt-10 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 md:min-h-500p">
+        <div class="px-6 lg:px-0 lg:pt-4 flex items-center">
+          <div class="mx-auto max-w-2xl mb-4 lg:mb-16 mr-auto ml-0 mt-8">
             <div class="max-w-lg">
-              <div class="mt-4 lg:mt-16">
-                <a href="#" class="inline-flex space-x-6">
-                  <span class="rounded-full bg-s-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">What's new</span>
-                  <span class="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-                    <span>Just shipped v0.1.0</span>
-                    <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                      <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-                    </svg>
-                  </span>
-                </a>
-              </div>
               <h1 class="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Supercharge your web applications</h1>
-              <p class="mt-6 text-lg leading-8 text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
               <div class="mt-10 flex items-center gap-x-6">
                 <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Documentation</a>
                 <a href="#" class="text-sm font-semibold leading-6 text-gray-900">View on GitHub <span aria-hidden="true">→</span></a>
@@ -25,14 +13,65 @@
             </div>
           </div>
         </div>
-        <div class="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
-          <div class="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36" aria-hidden="true"></div>
-          <div class="shadow-lg md:rounded-3xl">
-            <div class="bg-emerald-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
-              <div class="absolute -inset-y-px left-1/2 -z-10 ml-10 w-40 skew-x-[-30deg] bg-emerald-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36" aria-hidden="true"></div>
+        <div class="smsbox flex items-center w-full justify-center">
+          <!-- <img class="inline w-24 h-48" src="~/assets/images/bracket-curly-light.svg"/> -->
+          <div class="sk-three-bounce">
+              <div class="sk-bounce-1 sk-child"></div>
+              <div class="sk-bounce-2 sk-child"></div>
+              <div class="sk-bounce-3 sk-child"></div>
+          </div>
+          <!-- <img class="inline w-24 h-48" src="~/assets/images/bracket-curly-right-light.svg"/> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ projects }}
+  <div class="bg-white py-24 md:py-32">
+    <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5">
+      <div class="max-w-2xl xl:col-span-2">
+        <div class="sticky lg:top-20 lg:pt-8">
+          <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">My Projects</h2>
+          <p class="mt-6 text-lg leading-8 text-gray-600 inline" id="typed"></p>
+        </div>
+      </div>
+      <ul v-if="projects" role="list" class="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3">
+        <li v-for="project in projects" class="flex flex-col gap-10 pt-12 sm:flex-row project">
+          <img class="aspect-[4/5] w-52 flex-none rounded-2xl object-cover" :src="project.data.collection_image.url" alt="">
+          <div class="max-w-xl flex-auto">
+            <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ project.data.heading }}</h3>
+            <p class="text-base leading-7 text-gray-600">Co-Founder / CEO</p>
+            <p class="mt-6 text-base leading-7 text-gray-600" id="project1">Ultricies massa malesuada viverra cras lobortis. Tempor orci hac ligula dapibus mauris sit ut eu. Eget turpis urna maecenas cras. Nisl dictum.</p>
+            <ul role="list" class="mt-6 flex gap-x-6">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                  <span class="sr-only">Twitter</span>
+                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-gray-500">
+                  <span class="sr-only">LinkedIn</span>
+                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clip-rule="evenodd" />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div>
+    <div class="mt-20 sm:mt-24 md:mx-auto lg:mx-0 lg:mt-0 lg:w-screen">
+          <div class="">
+            <div class="bg-white">
+              <div class="absolute -inset-y-px -z-10 ml-10 w-40 skew-x-[-30deg] bg-emerald-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36" aria-hidden="true"></div>
               <div class="relative px-6 pt-8 sm:pt-16 md:pl-16 md:pr-0">
                 <div class="mx-auto max-w-2xl md:mx-0 md:max-w-none min-h-275p">
-                  <div class="w-full overflow-hidden rounded-xl md:rounded-tr-none md:rounded-bl-none bg-gray-900">
+                  <div class="w-full overflow-hidden rounded-xl md:rounded-tr-none md:rounded-bl-none md:rounded-br-none bg-gray-900">
                     <div class="flex bg-gray-800/40 ring-1 ring-white/5">
                       <div class="-mb-px flex text-sm font-medium leading-6 text-gray-400">
                         <div class="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">readMe.txt</div>
@@ -46,58 +85,12 @@
                     </div>
                   </div>
                 </div>
-                <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 md:rounded-3xl" aria-hidden="true"></div>
+                <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10" aria-hidden="true"></div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
   </div>
-  <div class="bg-white py-16">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-12 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-        <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" width="158" height="48">
-        <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" width="158" height="48">
-        <img class="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" width="158" height="48">
-        <img class="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" width="158" height="48">
-        <img class="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" width="158" height="48">
-      </div>
-      <div class="mt-16 flex justify-center">
-        <p class="relative rounded-full bg-gray-50 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5">
-          <span class="hidden md:inline">Over 2500 companies use our tools to better their business.</span>
-          <a href="#" class="font-semibold text-indigo-600"><span class="absolute inset-0" aria-hidden="true"></span> Read our customer stories <span aria-hidden="true">&rarr;</span></a>
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <section class="isolate overflow-hidden bg-white px-6 lg:px-8">
-    <div class="relative mx-auto max-w-2xl py-24 sm:py-32">
-      <div class="absolute left-1/2 top-0 -z-10 h-[50rem] w-[90rem] -translate-x-1/2 bg-[radial-gradient(50%_100%_at_top,theme(colors.green.100),white)] opacity-20 lg:left-36"></div>
-      <div class="absolute inset-y-0 right-1/2 -z-10 mr-12 w-[150vw] origin-bottom-left skew-x-[-30deg] bg-white shadow-xl shadow-green-600/10 ring-1 ring-green-50 sm:mr-20 md:mr-0 lg:right-full lg:-mr-36 lg:origin-center"></div>
-      <figure class="grid grid-cols-1 items-center gap-x-6 gap-y-8 lg:gap-x-10">
-        <div class="relative col-span-2 lg:col-start-1 lg:row-start-2">
-          <svg viewBox="0 0 162 128" fill="none" aria-hidden="true" class="absolute -top-12 left-0 -z-10 h-32 stroke-gray-900/10">
-            <path id="b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" d="M65.5697 118.507L65.8918 118.89C68.9503 116.314 71.367 113.253 73.1386 109.71C74.9162 106.155 75.8027 102.28 75.8027 98.0919C75.8027 94.237 75.16 90.6155 73.8708 87.2314C72.5851 83.8565 70.8137 80.9533 68.553 78.5292C66.4529 76.1079 63.9476 74.2482 61.0407 72.9536C58.2795 71.4949 55.276 70.767 52.0386 70.767C48.9935 70.767 46.4686 71.1668 44.4872 71.9924L44.4799 71.9955L44.4726 71.9988C42.7101 72.7999 41.1035 73.6831 39.6544 74.6492C38.2407 75.5916 36.8279 76.455 35.4159 77.2394L35.4047 77.2457L35.3938 77.2525C34.2318 77.9787 32.6713 78.3634 30.6736 78.3634C29.0405 78.3634 27.5131 77.2868 26.1274 74.8257C24.7483 72.2185 24.0519 69.2166 24.0519 65.8071C24.0519 60.0311 25.3782 54.4081 28.0373 48.9335C30.703 43.4454 34.3114 38.345 38.8667 33.6325C43.5812 28.761 49.0045 24.5159 55.1389 20.8979C60.1667 18.0071 65.4966 15.6179 71.1291 13.7305C73.8626 12.8145 75.8027 10.2968 75.8027 7.38572C75.8027 3.6497 72.6341 0.62247 68.8814 1.1527C61.1635 2.2432 53.7398 4.41426 46.6119 7.66522C37.5369 11.6459 29.5729 17.0612 22.7236 23.9105C16.0322 30.6019 10.618 38.4859 6.47981 47.558L6.47976 47.558L6.47682 47.5647C2.4901 56.6544 0.5 66.6148 0.5 77.4391C0.5 84.2996 1.61702 90.7679 3.85425 96.8404L3.8558 96.8445C6.08991 102.749 9.12394 108.02 12.959 112.654L12.959 112.654L12.9646 112.661C16.8027 117.138 21.2829 120.739 26.4034 123.459L26.4033 123.459L26.4144 123.465C31.5505 126.033 37.0873 127.316 43.0178 127.316C47.5035 127.316 51.6783 126.595 55.5376 125.148L55.5376 125.148L55.5477 125.144C59.5516 123.542 63.0052 121.456 65.9019 118.881L65.5697 118.507Z" />
-            <use href="#b56e9dab-6ccb-4d32-ad02-6b4bb5d9bbeb" x="86" />
-          </svg>
-          <blockquote class="text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-            
-            
-          </blockquote>
-        </div>
-        <div class="col-end-1 w-16 lg:row-span-4 lg:w-64">
-          <prismic-image 
-            :field="doc.data.index_image"
-            class="w-full rounded-full border-4 md:border-8 border-black hover:opacity-90 cursor-pointer"
-          />
-        </div>
-      </figure>
-      
-    </div>
-  </section>
-  
 </template>
 <script setup lang="ts">
   import { ref, onMounted, computed, watch } from 'vue' ;
@@ -107,41 +100,68 @@
   import * as prismicH from '@prismicio/helpers';
   const { $richTextSerializer } = useNuxtApp()
 
-  // Import Swiper styles
-  import 'swiper/css';
-
   //pull data
   const { client } = usePrismic();
   const { data: doc } = await useAsyncData("index", () =>
     client.getSingle("index")
   );
+  const { data: projects} = await useAsyncData("project-pull", () => {
+    return client.getAllByType('project_collection')
+  })
+  
+  console.log(projects.value)
 
   //serialize in memory
   const contentText = prismicH.asHTML(doc.value.data.index_content, null, $richTextSerializer);
 
+  //
+  const ioConfiguration = {
+    /**
+     * This rootMargin creates a horizontal line vertically centered
+     * that will help trigger an intersection at that the very point.
+     */
+    rootMargin: '-50% 0% -50% 0%',
+
+    /**
+     * This is the default so you could remove it.
+     * I just wanted to leave it here to make it more explicit
+     * as this threshold is the only one that works with the above
+     * rootMargin
+     */
+    threshold: 0
+  };
+
+  function setUpTypedObserver(selector, content) {
+    const viewportObserver = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+          // Run the typed code
+          var typed = new Typed("#typed", {
+            strings: [`<span class="">${content}</span>`],
+            typeSpeed: 30,
+            backSpeed: 0,
+          });
+          // Instruct the IntersectionObserver to stop watching for changes to #typed3, otherwise your typed code will be called more than once
+        }
+      }, ioConfiguration)
+      viewportObserver.observe(document.querySelector(selector))
+  }
+
   //on mounted
   onMounted(() => {
-    const viewportObserver = new IntersectionObserver((entries, observer) => {
-      // If #typed3 is within the viewport
-      if (entries[0].isIntersecting) {
-        // Run the typed code
-        var typed = new Typed('#typed', {
-          strings: [`<span class="">${contentText}</span>`],
-          typeSpeed: 70,
-          backSpeed: 0,
-        });
-        // Instruct the IntersectionObserver to stop watching for changes to #typed3, otherwise your typed code will be called more than once
-        observer.unobserve(document.querySelector('#typed'))
-      }})
-
-      // Instruct the IntersectioObserver to observe the #typed3 element
-      viewportObserver.observe(document.querySelector('#typed'))
+      setUpTypedObserver('#project1', contentText)
+      setUpTypedObserver('#project2', "text2")
+      setUpTypedObserver('#project3', "text3")
+      setUpTypedObserver('#project4', "text4")
   })
 
 </script>
 <style lang="css">
   .typed-cursor--blink {
     animation: typedjsBlink 1s infinite !important; 
+  }
+
+  .typed-cursor:not(:first-of-type) {
+    display: none;
   }
 
   .typing {

@@ -1,7 +1,7 @@
 
 <template>
     <header class="bg-white border-bottom border-b-2 sticky top-0 z-10">
-        <nav class="px-6 mx-auto flex max-w-6xl items-center justify-between py-3" aria-label="Global">
+        <nav class="px-6 mx-auto flex max-w-7xl px-6 lg:px-8 items-center justify-between py-3" aria-label="Global">
             <div class="flex items-center gap-x-12">
                 <div class="-m-1.5 p-1.5 flex gap-x-4 items-center">
                     <span class="sr-only">Your Company</span>
@@ -27,7 +27,7 @@
             </button>
             </div>
             <div class="hidden lg:flex">
-                <div class="relative pr-1 pt-1" @click="toggleModalTrigger">
+                <div class="relative pr-1 pt-1 cursor-pointer" @click="toggleModalTrigger">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
                     </svg>
@@ -101,6 +101,9 @@
     useHead({
         // ref syntax
         script: [
+            { 
+                src: '../assets/scripts/chatOptions.js',
+            },
             { 
                 src: '//js-na1.hs-scripts.com/43917904.js',
                 defer: true,
