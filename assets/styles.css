@@ -2,10 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --dot-width: 60px;
+@font-face {
+  font-family: 'DMMono';
+  src: url('~@/assets/fonts/DMMono-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
+@font-face {
+  font-family: 'DMMono';
+  src: url('~/assets/fonts/DMMono-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DMMono';
+  src: url('~/assets/fonts/DMMono-Medium.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMMono';
+  src: url('~/assets/fonts/DMMono-MediumItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'DMMono';
+  src: url('~/assets/fonts/DMMono-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'DMMono';
+  src: url('~/assets/fonts/DMMono-LightItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+html {
+  background: #111827;
+}
+
+html, body {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --dot-width: 60px;
+  --small-dot-width: 16px;
+}
+.sk-three-bounce-sml {
+  width: calc(var(--small-dot-width) * 2);
+  text-align: center;
+}
+
+.sk-child-sml {
+  width: calc(var(--small-dot-width) / 2);
+  height: calc(var(--small-dot-width) /2);
+  background-color: #525252;
+  margin-right: calc(var(--small-dot-width) / 10);
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-three-bounce 1.4s ease-in-out 0s infinite both;
+}
+
+.about-me div{
+  margin-left:6px;
+}
+
+.code-font {
+  font-family: 'DMMono';
+}
+
+@media screen and (min-width:768px){
+  .about-me div{
+    margin-left:1rem;
+  }
+}
+
+
+@keyframes fadeIn {
+  1% { opacity: 0; display: none; }
+  2% { opacity: 0; display: flex;}
+  100% { opacity: 1; visibility: visible;}
+}
+@keyframes fadeOut {
+  1% { opacity: 1; display: flex;}
+  99% { opacity: 0; display: flex;}
+  100% { opacity: 0; display: none; }
+}
+
+/* --- */
 .sk-three-bounce {
   width: calc(var(--dot-width) * 2);
   text-align: center;
@@ -27,9 +119,18 @@
 .sk-bounce-2 {
   animation-delay: -0.16s;
 }
-
-.sk-bounce-2 {
+/* .sk-bounce-2 {
   animation-delay: -0.08s;
+} */
+
+.float-animation0 {
+  animation: float 3.4s ease-in-out 0s infinite both;
+}
+.float-animation1 {
+  animation: float2 3s ease-in-out 0s infinite both;
+}
+.float-animation2 {
+  animation: float 3.2s ease-in-out 0s infinite both;
 }
 
 @keyframes sk-three-bounce {
@@ -41,31 +142,31 @@
   }
 }
   
-  @keyframes float {
-    0% {
-      transform: translatey(0px);
-    }
-    50% {
-      transform: translatey(-20px);
-    }
-    100% {
-      transform: translatey(0px);
-    }
+@keyframes float {
+  0% {
+    transform: translatey(0px);
   }
-  
-  @keyframes float2 {
-    0% {
-      line-height: 30px;
-      transform: translatey(0px);
-    }
-    55% {
-      transform: translatey(-20px);
-    }
-    60% {
-      line-height: 10px;
-    }
-    100% {
-      line-height: 30px;
-      transform: translatey(0px);
-    }
+  50% {
+    transform: translatey(-20px);
   }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+  55% {
+    transform: translatey(-20px);
+  }
+  60% {
+    line-height: 10px;
+  }
+  100% {
+    line-height: 30px;
+    transform: translatey(0px);
+  }
+}

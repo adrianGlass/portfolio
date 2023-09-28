@@ -103,7 +103,22 @@ export interface ProjectCollectionDocumentDataProjectsItem {
   project_detail: prismic.ContentRelationshipField;
 }
 
-type ProjectCollectionDocumentDataSlicesSlice = never;
+/**
+ * Item in *Project Collection → Tags*
+ */
+export interface ProjectCollectionDocumentDataTagsItem {
+  /**
+   * tag field in *Project Collection → Tags*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_collection.tags[].tag
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tag: prismic.KeyTextField;
+}
+
+type ProjectCollectionDocumentDataSlicesSlice = ImageSlice;
 
 /**
  * Content for Project Collection documents
@@ -132,6 +147,17 @@ interface ProjectCollectionDocumentData {
   collection_image: prismic.ImageField<never>;
 
   /**
+   * Content field in *Project Collection*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_collection.content
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+
+  /**
    * Projects field in *Project Collection*
    *
    * - **Field Type**: Group
@@ -143,6 +169,17 @@ interface ProjectCollectionDocumentData {
   projects: prismic.GroupField<
     Simplify<ProjectCollectionDocumentDataProjectsItem>
   >;
+
+  /**
+   * Tags field in *Project Collection*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_collection.tags[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  tags: prismic.GroupField<Simplify<ProjectCollectionDocumentDataTagsItem>>;
 
   /**
    * Slice Zone field in *Project Collection*
@@ -204,7 +241,7 @@ export type ProjectCollectionDocument<Lang extends string = string> =
     Lang
   >;
 
-type ProjectDetailDocumentDataSlicesSlice = never;
+type ProjectDetailDocumentDataSlicesSlice = ImageSlice;
 
 /**
  * Content for Project Detail documents
@@ -233,17 +270,6 @@ interface ProjectDetailDocumentData {
   content: prismic.RichTextField;
 
   /**
-   * Background field in *Project Detail*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project_detail.background
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  background: prismic.ImageField<never>;
-
-  /**
    * Link field in *Project Detail*
    *
    * - **Field Type**: Link
@@ -253,6 +279,40 @@ interface ProjectDetailDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   link: prismic.LinkField;
+
+  /**
+   * Tags field in *Project Detail*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_detail.tags
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tags: prismic.RichTextField;
+
+  /**
+   * Is Active field in *Project Detail*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: project_detail.is_active
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  is_active: prismic.BooleanField;
+
+  /**
+   * Stack field in *Project Detail*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_detail.stack
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  stack: prismic.RichTextField;
 
   /**
    * Slice Zone field in *Project Detail*
@@ -319,6 +379,58 @@ export type AllDocumentTypes =
   | ProjectCollectionDocument
   | ProjectDetailDocument;
 
+/**
+ * Primary content in *ImageShowcase → Primary*
+ */
+export interface ImageSliceDefaultPrimary {
+  /**
+   * image field in *ImageShowcase → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * content field in *ImageShowcase → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: image.primary.content
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ImageShowcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ImageShowcase*
+ */
+type ImageSliceVariation = ImageSliceDefault;
+
+/**
+ * ImageShowcase Shared Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Image
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImageSlice = prismic.SharedSlice<"image", ImageSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -335,11 +447,16 @@ declare module "@prismicio/client" {
       ProjectCollectionDocument,
       ProjectCollectionDocumentData,
       ProjectCollectionDocumentDataProjectsItem,
+      ProjectCollectionDocumentDataTagsItem,
       ProjectCollectionDocumentDataSlicesSlice,
       ProjectDetailDocument,
       ProjectDetailDocumentData,
       ProjectDetailDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ImageSlice,
+      ImageSliceDefaultPrimary,
+      ImageSliceVariation,
+      ImageSliceDefault,
     };
   }
 }

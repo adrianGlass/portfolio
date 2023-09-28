@@ -28,14 +28,6 @@
           "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
         }
       },
-      "background": {
-        "type": "Image",
-        "config": {
-          "label": "Background",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "link": {
         "type": "Link",
         "config": {
@@ -44,11 +36,42 @@
           "select": null
         }
       },
+      "tags": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Tags",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "is_active": {
+        "type": "Boolean",
+        "config": {
+          "label": "Is Active",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "stack": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Stack",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "image": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

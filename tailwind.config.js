@@ -14,6 +14,12 @@ export default {
       },
       inset: {
         40 : '10rem',
+      },
+      spacing: {
+        'portfolio-width': 'calc(100vw - 433px)',
+      },
+      lineHeight: {
+        '14': '3.5rem',
       }
     },
   },
